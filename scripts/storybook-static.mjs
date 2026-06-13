@@ -38,7 +38,18 @@ const contentTypes = {
 
 const server = createServer((request, response) => {
   const requestUrl = new URL(request.url || '/', `http://${host}:${port}`);
-  const pathname = decodeURIComponent(requestUrl.pathname);
+  let pathname;
+
+  try {
+    pathname = decodeURIComponent(requestUrl.pathname);
+  } catch {
+    response.writeHead(400, {
+      'Content-Type': 'text/plain; charset=utf-8',
+    });
+    response.end('Bad Request');
+    return;
+  }
+
   const safePath = normalize(pathname).replace(/^(\.\.[/\\])+/, '');
   let filePath = join(outputDir, safePath);
 
