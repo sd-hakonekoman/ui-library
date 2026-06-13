@@ -1,0 +1,18 @@
+@import './tokens.css';
+
+/*
+ * Storybook の preview iframe 内で使う基本スタイルです。
+ * アプリ本体に組み込むときは、必要に応じてこのファイルを読み込む想定です。
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ui-color-gray-900);
+  background: var(--ui-color-gray-50);
+  font-family: var(--ui-font-family-base);
+}

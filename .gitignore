@@ -1,0 +1,27 @@
+# npm がインストールする依存パッケージです。容量が大きく、package-lock.json から再現できます。
+node_modules/
+
+# Storybook の静的ビルド成果物です。必要なときに npm run build-storybook で再生成します。
+storybook-static/
+
+# Storybook や Vite が内部的に使うキャッシュです。
+.storybook-cache/
+.storybook-home/
+node_modules/.cache/
+.vite/
+
+# ログファイルです。ローカル実行時の一時的な情報なので Git には含めません。
+npm-debug.log*
+debug-storybook.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 環境変数ファイルです。秘密情報を含む可能性があるため Git には含めません。
+.env
+.env.*
+
+# macOS やエディタが作るローカル専用ファイルです。
+.DS_Store
+.idea/
+.vscode/

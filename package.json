@@ -1,0 +1,18 @@
+{
+  "name": "ui-library",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Storybook を使って育てる HTML/CSS/JavaScript ベースのデザインシステムです。",
+  "scripts": {
+    "storybook": "HOME=.storybook-home node scripts/storybook-static.mjs",
+    "build-storybook": "HOME=.storybook-home storybook build --disable-telemetry"
+  },
+  "devDependencies": {
+    "@storybook/html-vite": "^10.4.4",
+    "storybook": "^10.4.4"
+  },
+  "overrides": {
+    "esbuild": "0.28.1"
+  }
+}
