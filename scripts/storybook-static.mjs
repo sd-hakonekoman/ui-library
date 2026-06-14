@@ -36,6 +36,13 @@ const contentTypes = {
   '.woff2': 'font/woff2',
 };
 
+function sendNotFound(response) {
+  response.writeHead(404, {
+    'Content-Type': 'text/plain; charset=utf-8',
+  });
+  response.end('Not Found');
+}
+
 const server = createServer((request, response) => {
   let pathname;
 
@@ -71,10 +78,23 @@ const server = createServer((request, response) => {
     filePath = join(filePath, 'index.html');
   }
 
+  if (!existsSync(filePath)) {
+    sendNotFound(response);
+    return;
+  }
+
   response.writeHead(200, {
     'Content-Type': contentTypes[extname(filePath)] || 'application/octet-stream',
   });
-  createReadStream(filePath).pipe(response);
+  createReadStream(filePath)
+    .on('error', () => {
+      if (!response.headersSent) {
+        sendNotFound(response);
+      } else {
+        response.destroy();
+      }
+    })
+    .pipe(response);
 });
 
 server.listen(port, host, () => {
