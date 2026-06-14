@@ -8,10 +8,10 @@ const config = {
 
   /*
    * addons は Storybook の機能拡張です。
-   * Storybook 10 の HTML/Vite 構成では、まず addon なしで最小構成にしています。
-   * Docs や Controls などを追加で拡張したくなったら、Storybook 10 対応の addon をここに足します。
+   * addon-docs は tags: ['autodocs'] が付いた story から Docs ページを生成します。
+   * コンポーネントの使い方や args の一覧を Storybook 上で確認できるようにします。
    */
-  addons: [],
+  addons: ['@storybook/addon-docs'],
 
   /*
    * HTML/CSS/JavaScript だけでコンポーネントを扱うための framework 設定です。

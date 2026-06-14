@@ -39,6 +39,11 @@ npm run build-storybook
 ビルド成果物は `storybook-static/` に出力されます。
 このディレクトリは再生成できるため Git 管理対象外です。
 
+## Docs ページ
+
+Storybook 10 の Docs ページは `@storybook/addon-docs` で有効化しています。
+`*.stories.js` に `tags: ['autodocs']` を設定すると、そのコンポーネントの Docs ページが Storybook のサイドバーに生成されます。
+
 ## ディレクトリ構成
 
 ```text

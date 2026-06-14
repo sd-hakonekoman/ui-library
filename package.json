@@ -9,6 +9,7 @@
     "build-storybook": "HOME=.storybook-home storybook build --disable-telemetry"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^10.4.4",
     "@storybook/html-vite": "^10.4.4",
     "storybook": "^10.4.4"
   },
