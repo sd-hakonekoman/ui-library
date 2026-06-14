@@ -37,10 +37,10 @@ const contentTypes = {
 };
 
 const server = createServer((request, response) => {
-  const requestUrl = new URL(request.url || '/', `http://${host}:${port}`);
   let pathname;
 
   try {
+    const requestUrl = new URL(request.url || '/', `http://${host}:${port}`);
     pathname = decodeURIComponent(requestUrl.pathname);
   } catch {
     response.writeHead(400, {
